@@ -1,0 +1,58 @@
+// Typography
+$base-font-family: 'Raleway', sans-serif;
+$heading-font-family: $base-font-family;
+
+// Font Sizes
+$base-font-size: 1rem;
+$base-font-weight: 500;
+$heading-font-weight: 700;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 0px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$blue: #23b7e5;
+$blue-light: #A7DBD8;
+$blue-dark: #117391;
+$tan: #E0E4CC;
+$orange-lighter: #F38630;
+$orange: #FA6900;
+$darker-gray: #333;
+$dark-gray: #444;
+$grey: #555;
+$medium-gray: #666;
+$light-gray: #ddd;
+
+$success: #1ac262;
+$error: #fb1f3f;
+$warn: $orange;
+$info: #3276b1;
+
+
+
+// Font Colors
+$base-font-color: $grey;
+$action-color: $orange;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Forms
+$form-box-shadow: none;// inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: none; //$form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 300ms;
+$base-timing: ease;

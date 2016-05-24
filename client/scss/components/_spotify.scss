@@ -1,0 +1,16 @@
+.btn-spotify{
+    background-color: #20bd52;
+    color: white;
+    border-radius: 42px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.25);
+    border: 1px solid rgba(255,255,255,.15);
+    text-transform: lowercase;
+    &:hover{
+        color: white;
+        background-color: shade(#20bd52, 10%);
+    }
+    i{
+        vertical-align: top;
+        font-size: 32px;
+    }
+}

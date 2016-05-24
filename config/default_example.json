@@ -1,0 +1,43 @@
+{
+    "mongo": {
+        "host": "127.0.0.1",
+        "port": "",
+        "db": "spocher"
+    },
+
+    "session": {
+        "secret": "keyboard warrior",
+        "ttl": 604800,
+        "cookie": {
+            "path": "/", "httpOnly": true, "secure": false, "maxAge": 604800000
+        },
+        "name": "sid"
+    },
+
+    "redis": {
+      "host": "127.0.0.1",
+      "port": ""
+    },
+
+    "ui": {
+        "host": "dev.spot.fm",
+        "port": "3000",
+        "protocol": "http"
+    },
+
+    "api": {
+        "host": "dev.spot.fm",
+        "port": "3000",
+        "protocol": "http"
+    },
+
+    "auth": {
+        "spotify": {
+            "clientId": "",
+            "clientSecret": "",
+            "scope": ["playlist-read-private", "playlist-read-collaborative"]
+        }
+    },
+
+    "sendGrid": ""
+}

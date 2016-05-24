@@ -1,0 +1,24 @@
+{
+  "name": "spotify-watcher",
+  "description": "Watch spotify playlist",
+  "main": "app.js",
+  "authors": [
+    "Amitava Saha <amitava82@gmail.com> (https://github.com/amitava82)"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "font-awesome": "~4.5.0",
+    "normalize-scss": "normalize.scss#~4.0.3",
+    "bootstrap-sass": "~3.3.6"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

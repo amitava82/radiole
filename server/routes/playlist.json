@@ -1,0 +1,36 @@
+{
+    "path": "/api/playlists",
+    "middleware": ["ensureLoggedIn", "refreshToken"],
+    "routes": [
+        {
+            "path": "mine",
+            "method": "get",
+            "handler": "getUserPlaylist"
+        },
+        {
+            "path": "featured",
+            "method": "get",
+            "handler": "getFeaturedPlaylist"
+        },
+        {
+            "path": ":id/watch",
+            "method": "put",
+            "handler": "watchPlaylist"
+        },
+        {
+            "path": ":id/unwatch",
+            "method": "put",
+            "handler": "unwatchPlaylist"
+        },
+        {
+            "path": ":watchall",
+            "method": "put",
+            "handler": "watchAll"
+        },
+        {
+            "path": "watched",
+            "method": "get",
+            "handler": "getWatchedPlaylist"
+        }
+    ]
+}
