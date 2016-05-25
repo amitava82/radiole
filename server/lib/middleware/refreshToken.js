@@ -13,7 +13,12 @@ module.exports = function (deps) {
             token_expires = req.user.token_expires;
 
         if(!token_expires || moment.unix(token_expires).isBefore(new Date())){
-            authHelper.refresh(user_id).then(next, next);
+            console.log('token expired, refreshing')
+            authHelper.refresh(user_id).then(
+                token => {
+                    req.user.access_token = token;
+                    next();
+                }, next);
         }else{
             next();
         }

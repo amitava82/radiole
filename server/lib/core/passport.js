@@ -8,6 +8,7 @@ var moment = require('moment');
 
 module.exports = function(deps){
     var passport = require('passport');
+    var refresh = require('passport-oauth2-refresh');
     var SpotifyStrategy = require('passport-spotify').Strategy;
 
     function callbackUrl(module){
@@ -58,12 +59,16 @@ module.exports = function(deps){
         });
     }
 
-    passport.use(new SpotifyStrategy({
-        clientID: config.get('auth.spotify.clientId'),
-        clientSecret: config.get('auth.spotify.clientSecret'),
-        callbackURL: callbackUrl('spotify')
-      }, _callback
-    ));
+    var spotify = new SpotifyStrategy({
+            clientID: config.get('auth.spotify.clientId'),
+            clientSecret: config.get('auth.spotify.clientSecret'),
+            callbackURL: callbackUrl('spotify')
+        }, _callback
+    );
+
+    passport.use(spotify);
+
+    refresh.use(spotify);
 
     passport.serializeUser(function(user, cb) {
         cb(null, user._id);

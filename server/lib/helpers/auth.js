@@ -13,20 +13,17 @@ module.exports = function(deps){
     return {
         
         refresh: function(oauthID){
-
-            return deps.model.User.findOne({oauthID: oauthID}).select('refresh_token').exec().then(
-                user => requestNewAccessToken('spotify', user.refresh_token)
-            ).spread(
-                (access_token, refresh_token) => {
+            var Model = deps.models.User;
+            return Model.findOne({_id: oauthID}).select('refresh_token').exec()
+                .then(user => requestNewAccessToken('spotify', user.refresh_token))
+                .then(r => {
+                    const [access_token] = r;
                     const token_expires = moment().second(3300).unix();
-
-                    return deps.model.User.findOneAndUpdate({oauthID: oauthID}, {
+                    return Model.findOneAndUpdate({_id: oauthID}, {
                         access_token,
-                        refresh_token,
                         token_expires
-                    }).exec();
-                }
-            )
+                    }, {new: true}).select('+access_token').exec().then(u => u.access_token);
+                })
 
         }
 
