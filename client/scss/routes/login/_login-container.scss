@@ -1,4 +1,23 @@
 .login-container{
     background-color: $brand-primary;
     padding: 20px;
+    color: white;
+    .brand{
+        font-size: 6rem;
+        font-weight: 700;
+        margin-bottom: 60px;
+    }
+
+    .about{
+        font-size: 2rem;
+        margin-bottom: 60px;
+    }
+
+    .icons{
+        font-size: 6rem;
+        margin-bottom: 20px;
+        i{
+            margin: 0 20px;
+        }
+    }
 }

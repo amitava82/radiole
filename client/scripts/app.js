@@ -13,8 +13,9 @@ var GoogleAnalytics = require('react-g-analytics');
 
 import {SITE_DESC} from './constants';
 
+import Header from './components/Header';
 import Sidebar from './components/SideBar';
-import Footer from './components/Footer';
+//import Footer from './components/Footer';
 import Toastr from './utils/toastr';
 
 
@@ -22,8 +23,10 @@ import Toastr from './utils/toastr';
 export default class App extends React.Component {
 
     render(){
-        return (
-            <main>
+        const {session: {isLoggedIn}} = this.props;
+
+        const content = isLoggedIn ? (
+            <main className="full-height">
                 <Helmet title="Spotcher" meta={[
                     {
                         name: 'description',
@@ -31,15 +34,25 @@ export default class App extends React.Component {
                     }
                 ]} />
                 <Sidebar />
-                <div id="main">
+                <div id="main full-height">
                     <div className="container-fluid">
+                        <Header />
                         {this.props.children}
                     </div>
                 </div>
-                <Footer />
                 <Toastr />
-                <GoogleAnalytics id="UA-73916287-1" />
             </main>
-        )
+        ) : (
+            <div className="full-height">
+                <Helmet title="Spotcher" meta={[
+                    {
+                        name: 'description',
+                        content: SITE_DESC
+                    }
+                ]} />
+                {this.props.children}
+            </div>
+        );
+        return content;
     }
 }

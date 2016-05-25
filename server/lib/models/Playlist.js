@@ -9,6 +9,7 @@ const model = 'Playlist';
 
 var userSchema = mongoose.Schema({
 
+    //playlist id
     _id: {
         type: String,
         index: 1,
@@ -20,11 +21,7 @@ var userSchema = mongoose.Schema({
         ref: 'User'
     },
 
-    watched: {
-        type: Boolean,
-        required: true,
-        default: false
-    }
+    playlist_details: {}
 
 }, {timestamps: true});
 

@@ -15,7 +15,7 @@ export default class SettingsContainer extends React.Component {
 
         return (
             <div className="settings-container">
-                <Helmet title="Settings" />
+                <Helmet title="radiole :: Settings" />
 
                 <div>settings container</div>
                 

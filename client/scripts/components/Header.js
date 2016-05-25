@@ -15,6 +15,17 @@ export default class Header extends React.Component {
 
 
     render () {
-        return (<div>Header</div>)
+        return (
+            <div className="header hidden-md hidden-lg">
+                <div className="navbar navbar-default">
+                    <button type="button" className="navbar-toggle">
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                    </button>
+                    <a className="navbar-brand" href="#">Brand</a>
+                </div>
+            </div>
+        )
     }
 }

@@ -9,6 +9,7 @@ const model = 'User';
 
 var userSchema = mongoose.Schema({
 
+    //spotify use id
     _id: {
         type: String,
         index: 1,

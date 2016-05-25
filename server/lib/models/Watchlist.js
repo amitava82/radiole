@@ -9,6 +9,7 @@ const model = 'Watchlist';
 
 var userSchema = mongoose.Schema({
 
+    //playlist id
     _id: {
         type: String,
         index: 1,
@@ -20,11 +21,15 @@ var userSchema = mongoose.Schema({
         ref: 'User'
     },
 
-    watch: {
+    track_id: {
         type: Boolean,
         required: true,
         default: false
-    }
+    },
+    
+    tract_details: {},
+    
+    added_on: Date
 
 }, {timestamps: true});
 

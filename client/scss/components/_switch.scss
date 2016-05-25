@@ -1,0 +1,15 @@
+@import "../../../node_modules/react-toggle-switch/dist/css/switch.min";
+.switch{
+    float: none;
+    margin-right: 10px;
+    background: #eee;
+}
+.toggle-watch{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    >span{
+        vertical-align: top;
+        font-weight: 500;
+    }
+}

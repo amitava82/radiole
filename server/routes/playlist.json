@@ -23,7 +23,12 @@
             "handler": "unwatchPlaylist"
         },
         {
-            "path": ":watchall",
+            "path": "watchall",
+            "method": "put",
+            "handler": "watchAll"
+        },
+        {
+            "path": "unwatchall",
             "method": "put",
             "handler": "watchAll"
         },

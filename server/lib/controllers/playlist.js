@@ -21,8 +21,8 @@ module.exports = function(deps){
         watchPlaylist(req, res, next){
             var list_id = req.params.id;
             deps.models.Playlist.findByIdAndUpdate(list_id, {
-                watched: true
-            }).exec().then(
+                user_id: req.user._id
+            }, {upsert: true}).exec().then(
                 r => res.send('OK'),
                 next
             );
@@ -30,9 +30,7 @@ module.exports = function(deps){
 
         unwatchPlaylist(req, res, next){
             var list_id = req.params.id;
-            deps.models.Playlist.findByIdAndUpdate(list_id, {
-                watched: false
-            }).exec().then(
+            deps.models.Playlist.findByIdAndRemove(list_id).exec().then(
                 r => res.send('OK'),
                 next
             );

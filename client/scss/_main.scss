@@ -1,19 +1,31 @@
 
-@media (min-width: 768px) {
-    #main{
-        margin-top: 50px;
-        margin-left: 250px;
+html, body{
+    height: 100%;
+}
+
+@media (min-width: 990px) {
+    main{
+        margin-left: 300px;
+    }
+}
+
+main{
+
+}
+@media (min-width: 300px){
+
+    .navbar-toggle {
+        display: block;
     }
 }
 
 #main{
-    min-height: 500px;
-}
-//Hide google map pin
-.pac-icon.pac-icon-marker {
-    display: none;
-    width: 0;
-    background-image: none;
+    padding: 40px 25px;
+    position: relative;
+
+    .content-wrapper{
+
+    }
 }
 
 .btn-lg {

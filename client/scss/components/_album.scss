@@ -1,0 +1,39 @@
+.album{
+    width: 200px;
+    height: 250px;
+    position: relative;
+    cursor: pointer;
+    img{
+        width: 200px;
+        height: 200px;
+    }
+    p{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 10px 0;
+        text-align: center;
+        white-space: nowrap;
+        font-weight: 500;
+    }
+
+    .hover-action{
+        display: none;
+        position: absolute;
+        top: 0;
+        text-align: center;
+        background: rgba(0,0,0,.7);
+        width: 200px;
+        height: 200px;
+        i{
+            padding-top: 25%;
+            font-size: 10rem;
+            color: #CE18F7;
+        }
+    }
+
+    &:hover{
+        .hover-action{
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+section{
+    .section-header{
+        position: relative;
+        h3{
+            border-bottom: 1px solid #AAA;
+            padding-bottom: 10px;
+
+            >small{
+                margin-left: 10px;
+            }
+        }
+        margin-bottom: 20px;
+    }
+    .section-body{
+        margin-bottom: 20px;
+    }
+}

@@ -2,10 +2,6 @@
  * Created by amitava on 06/02/16.
  */
 import superagent from 'superagent';
-import {normalize, arrayOf} from 'normalizr';
-import isArray from 'lodash/isArray';
-
-import { stringify } from 'qs'
 const methods = ['get', 'post', 'put', 'patch', 'del'];
 const Promise = require('bluebird');
 
@@ -41,7 +37,7 @@ class _ApiClient {
                 }
 
                 if (params) {
-                    request.query(stringify(params, { arrayFormat: 'brackets' }));
+                    request.query(params);
                 }else{
                     params = {};
                     params._ = new Date().getTime();
@@ -59,11 +55,7 @@ class _ApiClient {
                     if(err){
                         return reject(body || err);
                     }else {
-                        if(schema){
-                            return body ? resolve(normalize(body, schema)) : resolve(normalize({}, schema));
-                        }else{
-                            return resolve(body);
-                        }
+                        return resolve(body);
                     }
                 });
 

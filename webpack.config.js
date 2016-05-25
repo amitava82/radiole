@@ -30,7 +30,7 @@ if(process.env.NODE_ENV == 'production'){
 module.exports = {
     entry: {
         app: path.resolve(__dirname, 'client/scripts/client.js'),
-        vendors: ['react', 'react-router', 'superagent', 'redux-thunk', 'history', 'lodash', 'scroll-behavior', 'classnames',
+        vendors: ['react', 'react-router', 'superagent', 'redux-thunk', 'history', 'lodash', 'scroll-behavior', 'classnames', 'normalizr',
             'redux', 'bluebird', 'autobind-decorator', 'react-router-redux', 'react-bootstrap', 'react-router-bootstrap', 'react-helmet','react-g-analytics']
     },
     //devtool: 'source-map',
