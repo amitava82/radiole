@@ -1,0 +1,14 @@
+.settings-container{
+    margin-top: 40px;
+    form{
+        width: 400px;
+        margin: 0 auto;
+        .radio-group{
+            display: flex;
+            flex-direction: row;
+            >div{
+                flex: 1;
+            }
+        }
+    }
+}

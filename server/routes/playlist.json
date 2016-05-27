@@ -33,9 +33,14 @@
             "handler": "watchAll"
         },
         {
-            "path": "watched",
+            "path": "watching",
             "method": "get",
             "handler": "getWatchedPlaylist"
+        },
+        {
+            "path": ":id",
+            "method": "get",
+            "handler": "getPlaylistDetails"
         }
     ]
 }

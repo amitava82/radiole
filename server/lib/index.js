@@ -2,8 +2,8 @@ var path = require('path');
 var fs = require('fs');
 var _ = require('lodash');
 
-module.exports = function(dependencies){
-    var folders = [
+module.exports = function(dependencies, folders){
+    folders = folders || [
         'middleware',
         'models',
         'controllers'

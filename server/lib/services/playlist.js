@@ -36,3 +36,11 @@ exports.getPlaylistTracks = function (userId, playlistId, accessToken) {
 
     return spotifyApi.getPlaylistTracks(userId, playlistId).then(getBody);
 };
+
+exports.getPlaylistDetails = function (userId, playlistId, accessToken) {
+    var spotifyApi = new SpotifyWebApi({
+        accessToken : accessToken
+    });
+    
+    return spotifyApi.getPlaylistTracks(userId, playlistId).then(getBody)
+};

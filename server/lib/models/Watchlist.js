@@ -7,7 +7,7 @@ var uuid = require('uuid');
 
 const model = 'Watchlist';
 
-var userSchema = mongoose.Schema({
+var watchlistSchema = mongoose.Schema({
 
     //playlist id
     _id: {
@@ -15,24 +15,30 @@ var userSchema = mongoose.Schema({
         index: 1,
         unique: 1
     },
+    
+    owner_id: {
+        type: String,
+        required: true
+    },
 
     user_id: {
         type: String,
-        ref: 'User'
+        ref: 'User',
+        index: 1
     },
 
-    track_id: {
-        type: Boolean,
-        required: true,
-        default: false
-    },
-    
-    tract_details: {},
-    
-    added_on: Date
+    name: String,
 
+    cover: String,
+
+    last_synced: {
+        type: Date,
+        default: Date.now
+    }
+    
 }, {timestamps: true});
 
-module.exports =  function(){
-    return mongoose.model(model, userSchema);
-}
+
+module.exports = function(){
+    return mongoose.model(model, watchlistSchema);
+};

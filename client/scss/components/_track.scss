@@ -1,0 +1,21 @@
+.track{
+    img.cover{
+        float: left;
+    }
+    .track-details{
+        margin-left: 90px;
+        .album-name{
+            font-size: 2rem;
+            font-weight: 500;
+            margin: 0;
+        }
+        .artist{
+            color: #999;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+    }
+    .timestamp{
+        font-size: 1.4rem;
+    }
+}

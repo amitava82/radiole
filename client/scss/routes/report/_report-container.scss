@@ -1,0 +1,40 @@
+.report-container{
+    section{
+        margin-bottom: 40px;
+    }
+    .section-header{
+        h3{
+            font-size: 2.2rem;
+            font-weight: 500;
+        }
+    }
+    .album-details{
+        .cover-container{
+            width: 250px;
+            img{
+                width: 200px;
+                height: 200px;
+                float: left;
+            }
+        }
+        .details{
+            h1{
+                font-weight: 300;
+                margin-top: 0;
+            }
+            ul{
+                margin-bottom: 20px;
+                li {
+                    display: inline-block;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    .track-list li{
+        border-bottom: 1px solid #eee;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+}

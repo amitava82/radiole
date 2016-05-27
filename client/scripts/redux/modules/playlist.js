@@ -12,8 +12,8 @@ import Schemas from '../schemas';
 import createAction from '../createActions';
 
 
-const [LOAD_FEATURED, LOAD_MINE, WATCH, UNWATCH, WATCHALL, UNWATCHALL] =
-    createAction('playlist', ["LOAD_FEATURED", "LOAD_MINE", "WATCH", "UNWATCH", "WATCHALL", "UNWATCHALL"]);
+const [LOAD_FEATURED, LOAD_MINE] =
+    createAction('playlist', ["LOAD_FEATURED", "LOAD_MINE"]);
 
 function featuredReducer(state = {
     loading: false,
@@ -102,42 +102,6 @@ export function getMyPlaylists() {
         type: LOAD_MINE,
         payload: {
             promise: api => api.get('playlists/mine')
-        }
-    }
-}
-
-export function watchPlaylist(id){
-    return {
-        type: WATCH,
-        payload: {
-            promise: api => api.put(`playlists/${id}/watch`)
-        }
-    }
-}
-
-export function unwatchPlaylist(id){
-    return {
-        type: WATCH,
-        payload: {
-            promise: api => api.put(`playlists/${id}/unwatch`)
-        }
-    }
-}
-
-export function watchAllPlaylists(){
-    return {
-        type: WATCHALL,
-        payload: {
-            promise: api => api.put(`playlists/watchall`)
-        }
-    }
-}
-
-export function unwatchAllPlaylists(){
-    return {
-        type: UNWATCHALL,
-        payload: {
-            promise: api => api.put(`playlists/unwatchall`)
         }
     }
 }

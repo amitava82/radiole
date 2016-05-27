@@ -31,9 +31,11 @@ deps.passport = require('./server/lib/core/passport')(deps);
 require('./server/lib')(deps);
 
 async.eachSeries([
+    'log',
     'mongodb',
     'app',
-    'nodemailer'
+    'nodemailer',
+    'agenda'
 ], function(item, done){
     var fn = require('./server/lib/core/'+item)(deps);
 

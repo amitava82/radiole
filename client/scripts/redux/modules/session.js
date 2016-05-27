@@ -7,7 +7,7 @@ import {push, goBack, replace, } from 'react-router-redux';
 
 import createAction from '../createActions';
 
-const [STORE_SESSION, SIGNUP, LOGIN] = createAction('session', ["STORE_SESSION", "SIGNUP", "LOGIN"]);
+const [STORE_SESSION, SIGNUP, LOGIN, SAVE_SETTINGS] = createAction('session', ["STORE_SESSION", "SIGNUP", "LOGIN", "SAVE_SETTINGS"]);
 
 const initialState = {
     user: null,
@@ -29,6 +29,7 @@ export default function(state = initialState, action = {}){
 
         case SIGNUP:
         case LOGIN:
+        case SAVE_SETTINGS:
             return extend({}, state, {
                 loading: true,
                 error: null
@@ -36,6 +37,7 @@ export default function(state = initialState, action = {}){
 
         case _reject(SIGNUP):
         case _reject(LOGIN):
+        case _reject(SAVE_SETTINGS):
             return extend({}, state, {
                 loading: false,
                 error: action.payload
@@ -52,6 +54,13 @@ export default function(state = initialState, action = {}){
                 error: action.payload,
                 isLoggedIn: false,
                 user: null
+            });
+
+        case resolve(SAVE_SETTINGS):
+            return extend({}, state, {
+                loading: false,
+                error: null,
+                user: action.payload
             });
 
         default:
@@ -80,6 +89,24 @@ export function login(email, password){
         type: LOGIN,
         payload: {
             promise: api => api.post('auth/login/local', {data: {email, password}, prefix: false})
+        }
+    }
+}
+
+export function saveSettings(email, digest_frequency){
+    return {
+        type: SAVE_SETTINGS,
+        payload: {
+            promise: api => api.post('settings/save', {data: {email, digest_frequency}})
+        }
+    }   
+}
+
+export function resendCode() {
+    return {
+        type: "RESEND_CODE",
+        payload: {
+            promise: api => api.post('auth/validation/resend')
         }
     }
 }

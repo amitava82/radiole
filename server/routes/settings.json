@@ -1,3 +1,11 @@
 {
-	
+    "path": "/api/settings",
+    "middleware": ["ensureLoggedIn"],
+    "routes": [
+        {
+            "path": "save",
+            "method": "post",
+            "handler": "savePreferences"
+        }
+    ]
 }

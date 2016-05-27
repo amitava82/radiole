@@ -55,6 +55,10 @@ var userSchema = mongoose.Schema({
         default: 'weekly'
     },
 
+    last_digest_sent_at: {
+        type: Date
+    },
+
     watch_all: {
         type: Boolean,
         required: true,

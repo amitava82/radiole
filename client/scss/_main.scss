@@ -9,9 +9,6 @@ html, body{
     }
 }
 
-main{
-
-}
 @media (min-width: 300px){
 
     .navbar-toggle {
@@ -22,10 +19,10 @@ main{
 #main{
     padding: 40px 25px;
     position: relative;
+}
 
-    .content-wrapper{
-
-    }
+.container-fluid{
+    padding: 0 20px 0 30px;
 }
 
 .btn-lg {

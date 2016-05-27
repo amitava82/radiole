@@ -26,7 +26,7 @@ module.exports = function (dependencies, callback) {
     });
     app.use('/', express.static(path.join(dependencies.basedir, 'client/static')));
 
-    app.set('views', path.resolve(dependencies.basedir, 'views'));
+    app.set('views', path.resolve(dependencies.basedir, './server/views'));
     app.set('view engine', 'ejs');
 
     app.use(bodyParser.urlencoded({ extended: false }));

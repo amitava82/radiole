@@ -9,7 +9,8 @@ import errorMessage from './error';
 import session from './session';
 import toast from './toast';
 import playlist from './playlist';
-
+import watchlist from './watchlist';
+import tracks from './tracks';
 
 export default combineReducers({
     errorMessage,
@@ -17,5 +18,7 @@ export default combineReducers({
     session,
     toast,
     playlist,
+    watchlist,
+    tracks,
     routing: routeReducer
 });

@@ -53,12 +53,11 @@ aside{
     }
 
     .now-watch{
-        padding: 10px;
-
         >p{
             color: $brand-primary;
             text-transform: uppercase;
             font-weight: 600;
+            margin-left: 10px;
         }
 
         .watch-list{
@@ -66,12 +65,24 @@ aside{
             overflow-y: auto;
             li {
                 margin-bottom: 10px;
+                box-shadow: 0 1px 2px rgba(0,0,0,.50);
                 a{
                     color: #E0E0E0;
+                    white-space: nowrap;
+                    display: block;
+                    margin-left: 10px;
+
+                    &:hover{
+                        background-color: darken(#1c1c1f, 10%);
+                        color: #eee;
+                    }
                     img{
                         width: 64px;
                         height: 64px;
                         margin-right: 10px;
+                    }
+                    span{
+
                     }
                 }
             }

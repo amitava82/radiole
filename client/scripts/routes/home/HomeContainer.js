@@ -11,7 +11,8 @@ import Switch from 'react-toggle-switch'
 import Album from '../../components/Album';
 import Loading from '../../components/Loading';
 
-import {getFeaturedPlaylist, getMyPlaylists, watchPlaylist} from '../../redux/modules/playlist';
+import {getFeaturedPlaylist, getMyPlaylists} from '../../redux/modules/playlist';
+import {watchPlaylist, unwatchPlaylist} from '../../redux/modules/watchlist';
 
 
 @connect(state => state)
@@ -23,8 +24,8 @@ export default class HomeContainer extends React.Component {
     }
 
     @autobind
-    watchPlaylist(id){
-        this.props.dispatch(watchPlaylist(id));
+    watchPlaylist(id, data){
+        this.props.dispatch(watchPlaylist(id, data));
     }
 
 
@@ -83,10 +84,10 @@ export default class HomeContainer extends React.Component {
                 <section>
                     <div className="section-header">
                         <h3>My Playlists</h3>
-                        <div className="toggle-watch">
+                        {/*<div className="toggle-watch">
                             <Switch/>
                             <span>Watch All</span>
-                        </div>
+                        </div>*/}
                     </div>
                     <div className="section-body">
                         <ul className="list-unstyled album-list">

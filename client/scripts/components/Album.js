@@ -13,17 +13,17 @@ export default class Album extends React.Component{
     };
 
     render(){
-        const {data} = this.props;
-        const cover = get(data, 'images[0].url');
+        const {data: {id, name, images, owner}} = this.props;
+        const cover = get(images, '[0].url');
 
         return (
             <div className="album">
-                <div onClick={() => this.props.onClick(data.id)}>
+                <div onClick={() => this.props.onClick(id, {name, cover, owner_id: owner.id})}>
                     <img src={cover} />
                     <div className="hover-action">
                         <i className="fa fa-heart" />
                     </div>
-                    <p className="album-name">{data.name}</p>
+                    <p className="album-name">{name}</p>
                 </div>
             </div>
         )
