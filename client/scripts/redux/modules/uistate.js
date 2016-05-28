@@ -8,6 +8,7 @@ import extend from 'lodash/extend';
 import union from 'lodash/union';
 import {normalize} from 'normalizr';
 import Schemas from '../schemas';
+import {UPDATE_LOCATION} from 'react-router-redux';
 
 import createAction from '../createActions';
 
@@ -24,6 +25,11 @@ export default function reducer(state = {
 
     switch(type){
         case TOGGLE_SIDEBAR:
+            return extend({}, state, {
+                sidebarOn: !state.sidebarOn
+            });
+
+        case UPDATE_LOCATION:
             return extend({}, state, {
                 sidebarOn: !state.sidebarOn
             });
