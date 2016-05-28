@@ -89,10 +89,14 @@ export default combinedReducer;
 
 
 export function getFeaturedPlaylist() {
-    return {
-        type: LOAD_FEATURED,
-        payload: {
-            promise: api => api.get('playlists/featured')
+    return (dispatch, getState) => {
+        if(getState().playlist.featured.ids.length === 0){
+            dispatch({
+                type: LOAD_FEATURED,
+                payload: {
+                    promise: api => api.get('playlists/featured')
+                }
+            })
         }
     }
 }

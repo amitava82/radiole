@@ -11,7 +11,9 @@ import get from 'lodash/get';
 import {
     HomeContainer
 } from './routes/home';
-
+import {
+    WatchlistContainer
+} from './routes/watchlist';
 import {
     ReportContainer
 } from './routes/report';
@@ -46,6 +48,7 @@ export default (store) => {
             <IndexRedirect to="/home"/>
             <Route path="/login" component={LoginContainer} />
             <Route path="/home" component={HomeContainer} onEnter={ensureLoggedIn} />
+            <Route path="/watching" component={WatchlistContainer} onEnter={ensureLoggedIn} />
             <Route path="/watching/:id" component={ReportContainer} onEnter={ensureLoggedIn} />
             <Route path="/settings" component={SettingsContainer} onEnter={ensureLoggedIn} />
             <Route path="/error" component={Error} />

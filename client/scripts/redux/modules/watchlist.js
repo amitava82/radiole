@@ -88,10 +88,17 @@ export default function watchlistReducer(state = {
 }
 
 export function loadWatching() {
-    return {
-        type: LOAD_WATCHING,
-        payload: {
-            promise: api => api.get('playlists/watching')
+    return (dispatch, getState) => {
+        const state = getState();
+        if(state.watchlist.ids.length === 0){
+            dispatch(
+                {
+                    type: LOAD_WATCHING,
+                    payload: {
+                        promise: api => api.get('playlists/watching')
+                    }
+                }
+            )
         }
     }
 }

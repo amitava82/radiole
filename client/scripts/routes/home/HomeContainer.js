@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 import autobind from 'autobind-decorator';
 import {Link} from 'react-router';
 import Helmet from 'react-helmet';
-import Switch from 'react-toggle-switch'
 
 import Album from '../../components/Album';
 import Loading from '../../components/Loading';

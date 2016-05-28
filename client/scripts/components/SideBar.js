@@ -81,7 +81,7 @@ export default class SideBar extends React.Component {
                 </div>
                 <hr />
                 <div className="now-watch">
-                    <p>Now watching</p>
+                    <p><Link to="/watching">Now watching</Link></p>
                     <ul className="watch-list list-unstyled">
                         {watching}
                     </ul>

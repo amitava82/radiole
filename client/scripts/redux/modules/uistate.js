@@ -31,7 +31,7 @@ export default function reducer(state = {
 
         case UPDATE_LOCATION:
             return extend({}, state, {
-                sidebarOn: !state.sidebarOn
+                sidebarOn: state.sidebarOn && !state.sidebarOn || false
             });
 
         default:
