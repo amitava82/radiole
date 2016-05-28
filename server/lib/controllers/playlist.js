@@ -1,7 +1,7 @@
-var Promise = require('bluebird');
 var playlistSvc = require('../services/playlist');
 
 module.exports = function(deps){
+
     return {
 
         getUserPlaylist(req, res, next){
@@ -33,12 +33,15 @@ module.exports = function(deps){
 
         unwatchPlaylist(req, res, next){
             var list_id = req.params.id;
-            deps.models.Watchlist.findByIdAndRemove(list_id).exec().then(
-                r => res.send('OK'),
-                next
-            );
+            deps.models.Watchlist.findOneAndRemove({_id: list_id, user_id: req.user._id}).exec()
+                .then(r => deps.models.Report.remove({playlist_id: list_id, user_id: req.user._id}).exec())
+                .then(
+                    () => res.send('OK'),
+                    next
+                )
         },
 
+        //todo
         watchAll(req, res, next){
             deps.models.User.findByIdAndUpdate(req.user._id, {
                 watch_all: true

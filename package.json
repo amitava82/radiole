@@ -49,7 +49,6 @@
     "react-router": "^2.0.0",
     "react-router-bootstrap": "^0.20.1",
     "react-router-redux": "^2.1.0",
-    "react-timeago": "^3.0.0",
     "react-toggle-switch": "^2.1.2",
     "redis": "^2.4.2",
     "redux": "^3.1.5",

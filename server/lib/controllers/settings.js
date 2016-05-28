@@ -13,7 +13,6 @@ module.exports = function(deps){
             const {user} = req;
             const currentEmail = user.email;
             const currentFrequency = user.digest_frequency;
-            const currentEmailVerified = user.email_verified;
 
             let email_verified = false;
             let frequency_changed = false;
@@ -37,10 +36,11 @@ module.exports = function(deps){
                         //Reschedule job if email frequency changed
                         if(frequency_changed){
                             schedulerHelper.cancelJob({name: jobConstants.SEND_EMAIL_DIGEST, 'data.user_id': u._id});
-                            schedulerHelper.createEmailJob(digest_frequency, u._id);
+                            if(email_verified)
+                                schedulerHelper.createEmailJob(digest_frequency, u._id);
                         }
                         
-                        if(!email_verified){
+                        if(!email_verified && email){
                             authHelper.sendVerificationEmail(u);
                         }
                         
@@ -52,6 +52,18 @@ module.exports = function(deps){
                     next
                 )
             
+        },
+        
+        deleteAccount(req, res, next){
+            const userid = req.user._id;
+            deps.models.User.findByIdAndRemove(userid).exec()
+                .then(() => deps.models.Watchlist.remove({ user_id: userid}).exec())
+                .then(() => deps.models.Report.remove({ user_id: userid}).exec())
+                .then(() => schedulerHelper.cancelJob({'data.user_id': userid}))
+                .then(
+                    () => res.send('OK'),
+                    next
+                )
         }
     }
 };

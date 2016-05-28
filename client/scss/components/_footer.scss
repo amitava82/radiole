@@ -5,33 +5,10 @@ footer{
     font-size: 1.4rem;
     text-align: center;
     padding: 20px;
-    .social{
-        a:hover{
-            &:first-child{
-                background-color: #46629e;
-            }
-            &:nth-child(2){
-                background-color: $brand-primary;
-            }
-            &:last-child{
-                background-color: #1a85bc;
-            }
-        }
-        a {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            text-align: center;
-            border: 1px solid #f2f2f2;
-            margin: 0 10px;
-            padding: 5px;
-            color: white;
-            line-height: 2.4rem;
-            font-size: 2rem;
-        }
-    }
-
     .links a {
         margin: 0 10px;
+        &:hover{
+            color: white;
+        }
     }
 }

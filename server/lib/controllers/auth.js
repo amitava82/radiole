@@ -2,7 +2,6 @@
  * Created by amitava on 08/02/16.
  */
 
-var Sendgrid  = require('sendgrid');
 var uuid = require('uuid');
 var Promise = require('bluebird');
 var _ = require('lodash');
@@ -10,8 +9,8 @@ var _ = require('lodash');
 
 module.exports = function(deps){
 
-    var sendgrid = Sendgrid(deps.config.get('sendGrid'));
     var helper = require('../helpers/auth')(deps);
+    var schedulerHelper = require('../helpers/scheduler')(deps);
 
     return {
 
@@ -67,8 +66,9 @@ module.exports = function(deps){
 
                 deps.models.User.findByIdAndUpdate(u._id, {
                     email_verified: true
-                }).exec().then(
-                    r => {
+                }, {new: true}).exec().then(
+                    u => {
+                        schedulerHelper.createEmailJob(u.digest_frequency, u._id);
                         deps.redis.expire(key, 0, _.noop);
                         res.redirect('/');
                     },

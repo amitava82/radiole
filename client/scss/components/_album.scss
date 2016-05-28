@@ -31,7 +31,7 @@
         }
     }
 
-    &:hover{
+    &:hover, &.watching{
         .hover-action{
             display: block;
         }

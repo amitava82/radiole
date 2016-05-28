@@ -39,7 +39,7 @@ module.exports = function(deps){
                 //TODO pretty template
                 var grid = new sendgrid.Email({
                     to: user.email,
-                    from: 'donotreplay@radiole.com',
+                    from: 'donotreplay@radiole.in',
                     fromname: 'radiole',
                     subject: 'Confirm your email address',
                     html: `

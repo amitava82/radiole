@@ -21,7 +21,7 @@ module.exports = function(deps, agenda){
     function sendmail(to, data){
         var grid = new sendgrid.Email({
             to: to,
-            from: 'donotreplay@radiole.com',
+            from: 'donotreplay@radiole.in',
             fromname: 'radiole',
             subject: 'Your watchlist digest is here!',
             html: compiledTemplate({
@@ -75,8 +75,7 @@ module.exports = function(deps, agenda){
                             playlist_id: {$in: watchIds}
                         };
 
-                        //added today 1pm
-                        //sent yesterday 1pm
+                        //only query tracks after last digest
                         if(last_sent){
                             query['added_at'] = {$gt: last_sent}
                         }

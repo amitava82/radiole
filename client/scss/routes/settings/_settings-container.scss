@@ -1,5 +1,6 @@
 .settings-container{
-    margin-top: 40px;
+    padding: 20px 30px;
+    background-color: #23b7e5;
     form{
         width: 400px;
         margin: 0 auto;
@@ -10,5 +11,9 @@
                 flex: 1;
             }
         }
+    }
+
+    .brand {
+        margin-bottom: 0;
     }
 }

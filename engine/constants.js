@@ -10,6 +10,7 @@ module.exports = {
     SEND_EMAIL_DIGEST: 'Send email digest',
     DAILY_SCHEDULE_TIME: 'every day at 5am', //everyday 6am
     WEEKLY_SCHEDULE_TIME: 'every sunday 5am', //sunday 6am
-    TIMEZONE: 'America/New_York'
+    TIMEZONE: 'America/New_York',
+    PLAYLIST_SYNC_FREQUENCY: '12 hours'
 };
 

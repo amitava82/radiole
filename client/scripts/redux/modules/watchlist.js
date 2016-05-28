@@ -3,9 +3,10 @@
  */
 import { combineReducers } from 'redux'
 import { resolve, reject as _reject } from '../middleware/simple-promise';
-import merge from 'lodash/merge';
 import extend from 'lodash/extend';
 import union from 'lodash/union';
+import pull from 'lodash/pull';
+import omit from 'lodash/omit';
 import {normalize} from 'normalizr';
 import Schemas from '../schemas';
 
@@ -72,6 +73,15 @@ export default function watchlistReducer(state = {
                 entities: extend({}, state.entities, playlist(null, action))
             });
 
+        case resolve(UNWATCH):
+            const playlistId = action.meta.id;
+            return extend({}, state, {
+                loading: false,
+                error: null,
+                ids: pull(state.ids, playlistId),
+                entities: omit(state.entities, playlistId)
+            });
+
         default:
             return state;
     }
@@ -99,28 +109,28 @@ export function watchPlaylist(id, data){
 
 export function unwatchPlaylist(id){
     return {
-        type: WATCH,
+        type: UNWATCH,
         payload: {
             promise: api => api.put(`playlists/${id}/unwatch`),
             id
         }
     }
 }
-
-export function watchAllPlaylists(){
-    return {
-        type: WATCHALL,
-        payload: {
-            promise: api => api.put(`playlists/watchall`)
-        }
-    }
-}
-
-export function unwatchAllPlaylists(){
-    return {
-        type: UNWATCHALL,
-        payload: {
-            promise: api => api.put(`playlists/unwatchall`)
-        }
-    }
-}
+//
+// export function watchAllPlaylists(){
+//     return {
+//         type: WATCHALL,
+//         payload: {
+//             promise: api => api.put(`playlists/watchall`)
+//         }
+//     }
+// }
+//
+// export function unwatchAllPlaylists(){
+//     return {
+//         type: UNWATCHALL,
+//         payload: {
+//             promise: api => api.put(`playlists/unwatchall`)
+//         }
+//     }
+// }

@@ -52,18 +52,7 @@ async.eachSeries([
     Scheduler(deps, function(err, agenda){
         agenda.start();
         //Job to fetch new watched list tracks
-        agenda.every('4 minutes', jobConstants.SYNC_PLAYLISTS);
-
-        
-        //agenda.now(jobConstants.SYNC_PLAYLISTS, {user_id: '22rnhjuk4jreckj3ghf4efv3i'});
-        
-        //daily email digest
-        //agenda.every('day', jobConstants.DAILY_EMAIL_DIGEST);
-        
-        //weekly email digest
-        //agenda.every('week', jobConstants.WEEKLY_EMAIL_DIGEST);
-
-        //agenda.now(jobs.DAILY_EMAIL_DIGEST, {user_id: '22rnhjuk4jreckj3ghf4efv3i', playlist_id: '7ErJpqhlmiekXD9ZHiDha3', owner_id: '22rnhjuk4jreckj3ghf4efv3i'})
+        agenda.every('12 hours', jobConstants.SYNC_PLAYLISTS);
     });
 
 });

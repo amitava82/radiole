@@ -32,9 +32,11 @@ import App from './app';
 export default (store) => {
 
     function ensureLoggedIn(nextState, replace, cb){
-        const {session: {isLoggedIn}} = store.getState();
+        const {session: {isLoggedIn, user}} = store.getState();
         if(!isLoggedIn){
             replace({pathname: '/login'});
+        }else if(!user.email && this.path !== '/settings'){
+            replace({pathname: '/settings'});
         }
         cb();
     }

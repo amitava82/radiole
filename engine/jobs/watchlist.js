@@ -73,7 +73,7 @@ module.exports = function(deps, agenda){
                 ()=> {
                     job.remove(done);
                 },
-                e => {console.log(e); done(e)});
+                e => {deps.log.error(e); done(e)});
 
     });
 };

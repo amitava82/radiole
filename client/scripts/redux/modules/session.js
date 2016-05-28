@@ -7,7 +7,7 @@ import {push, goBack, replace, } from 'react-router-redux';
 
 import createAction from '../createActions';
 
-const [STORE_SESSION, SIGNUP, LOGIN, SAVE_SETTINGS] = createAction('session', ["STORE_SESSION", "SIGNUP", "LOGIN", "SAVE_SETTINGS"]);
+const [STORE_SESSION, SIGNUP, LOGIN, SAVE_SETTINGS, DELETE_ACCOUNT] = createAction('session', ["STORE_SESSION", "SIGNUP", "LOGIN", "SAVE_SETTINGS", "DELETE_ACCOUNT"]);
 
 const initialState = {
     user: null,
@@ -107,6 +107,15 @@ export function resendCode() {
         type: "RESEND_CODE",
         payload: {
             promise: api => api.post('auth/validation/resend')
+        }
+    }
+}
+
+export function optout() {
+    return {
+        type: "DELETE_ACCOUNT",
+        payload: {
+            promise: api => api.del('settings/optout')
         }
     }
 }

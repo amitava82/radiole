@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import {connect} from 'react-redux';
+import {push} from 'react-router-redux';
 import autobind from 'autobind-decorator';
 import {Link} from 'react-router';
 import Helmet from 'react-helmet';
@@ -14,6 +15,7 @@ import Loading from '../../components/Loading';
 
 import {getMyPlaylists} from '../../redux/modules/playlist';
 import {getPlaylistTracks} from '../../redux/modules/tracks';
+import {unwatchPlaylist} from '../../redux/modules/watchlist';
 import {createToast} from '../../redux/modules/toast';
 
 
@@ -41,7 +43,6 @@ export default class ReportContainer extends React.Component {
     }
 
     componentWillReceiveProps(nextProps){
-        console.log(nextProps.errorMessage);
         if(nextProps.params.id != this.props.params.id){
             this.props.dispatch(getPlaylistTracks(nextProps.params.id));
         }
@@ -53,6 +54,12 @@ export default class ReportContainer extends React.Component {
 
     withinLastWeek(d){
         return Date.parse(d) > LAST_WEEK;
+    }
+
+    @autobind
+    unwatch(){
+        this.props.dispatch(unwatchPlaylist(this.props.params.id));
+        this.props.dispatch(push('/home'));
     }
 
 
@@ -125,7 +132,7 @@ export default class ReportContainer extends React.Component {
                                         <li>{`${weekList.length} track added this week`}</li>
                                         <li>{`${trackList.length} track added since watch`}</li>
                                     </ul>
-                                    <button className="btn btn-default btn-sm">Unwatch</button>
+                                    <button onClick={this.unwatch} className="btn btn-default btn-sm">Unwatch</button>
                                 </div>
                             </div>
                         </div>

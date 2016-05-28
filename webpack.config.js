@@ -31,7 +31,7 @@ module.exports = {
     entry: {
         app: path.resolve(__dirname, 'client/scripts/client.js'),
         vendors: ['react', 'react-router', 'superagent', 'redux-thunk', 'history', 'lodash', 'scroll-behavior', 'classnames', 'normalizr',
-            'redux', 'bluebird', 'autobind-decorator', 'react-router-redux', 'react-bootstrap', 'react-router-bootstrap', 'react-helmet','react-g-analytics']
+            'redux', 'bluebird', 'autobind-decorator', 'react-router-redux', 'react-bootstrap', 'react-router-bootstrap', 'react-helmet']
     },
     //devtool: 'source-map',
     output: {

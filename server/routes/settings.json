@@ -6,6 +6,11 @@
             "path": "save",
             "method": "post",
             "handler": "savePreferences"
+        },
+        {
+            "path": "optout",
+            "method": "delete",
+            "handler": "deleteAccount"
         }
     ]
 }

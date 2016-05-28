@@ -2,11 +2,11 @@ aside{
     width: 300px;
     position: absolute;
     background: #1c1c1f;
-    padding-bottom: 150px;
     box-shadow: 0px 0px 8px 5px rgba(0,0,0,0.2);
     left: 0;
     top: 0;
     color: #888;
+    z-index: 999;
 
     hr{
         border-color: #333;
@@ -53,6 +53,7 @@ aside{
     }
 
     .now-watch{
+        padding-bottom: 150px;
         >p{
             color: $brand-primary;
             text-transform: uppercase;

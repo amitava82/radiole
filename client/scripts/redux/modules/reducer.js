@@ -11,6 +11,7 @@ import toast from './toast';
 import playlist from './playlist';
 import watchlist from './watchlist';
 import tracks from './tracks';
+import uistate from './uistate'
 
 export default combineReducers({
     errorMessage,
@@ -20,5 +21,6 @@ export default combineReducers({
     playlist,
     watchlist,
     tracks,
+    uistate,
     routing: routeReducer
 });

@@ -4,18 +4,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {push} from 'react-router-redux';
-import autobind from 'autobind-decorator';
-import merge from 'lodash/merge';
-import get from 'lodash/get';
 import Helmet from 'react-helmet';
-
-var GoogleAnalytics = require('react-g-analytics');
-
 import {SITE_DESC} from './constants';
-
 import Header from './components/Header';
 import Sidebar from './components/SideBar';
-//import Footer from './components/Footer';
 import Toastr from './utils/toastr';
 
 
@@ -34,11 +26,9 @@ export default class App extends React.Component {
                     }
                 ]} />
                 <Sidebar />
-                <div id="main full-height">
-                    <div className="container-fluid">
-                        <Header />
-                        {this.props.children}
-                    </div>
+                <div id="main" className="full-height">
+                    <Header />
+                    {this.props.children}
                 </div>
                 <Toastr />
             </main>

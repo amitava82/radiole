@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import Helmet from 'react-helmet';
 
+import BrandHeader from '../../components/BrandHeader';
 
 @connect(state => state)
 export default class LoginContainer extends React.Component {
@@ -17,15 +18,7 @@ export default class LoginContainer extends React.Component {
         return (
             <div className="login-container full-height text-center">
                 <Helmet title="radiole :: Login with Spotify" />
-                <p className="brand">radiole</p>
-                <div className="icons">
-                        <span>
-                            <i className="fa fa-spotify"></i>
-                            <i className="fa fa-heart"></i>
-                            <i className="fa fa-feed"></i>
-                            <i className="fa fa-envelope"></i>
-                        </span>
-                </div>
+                <BrandHeader />
                 <p className="about">
                     Watch Spotify playlists and get notified when new tracks get added.
                 </p>

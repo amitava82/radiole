@@ -30,7 +30,7 @@ export default class HomeContainer extends React.Component {
 
 
     render(){
-        const {playlist: {featured, mine}} = this.props;
+        const {playlist: {featured, mine}, watchlist} = this.props;
 
         let albums = null;
 
@@ -40,7 +40,7 @@ export default class HomeContainer extends React.Component {
             albums = featured.ids.map(i => {
                 return (
                     <li key={i}>
-                        <Album data={featured.entities[i]} onClick={this.watchPlaylist} />
+                        <Album data={featured.entities[i]} onClick={this.watchPlaylist} watching={!!watchlist.entities[i]} />
                     </li>
                 )
             });
@@ -59,7 +59,7 @@ export default class HomeContainer extends React.Component {
             mylist = mine.ids.map(i => {
                 return (
                     <li key={i}>
-                        <Album data={mine.entities[i]} onClick={this.watchPlaylist}/>
+                        <Album data={mine.entities[i]} onClick={this.watchPlaylist} watching={!!watchlist.entities[i]} />
                     </li>
                 )
             });

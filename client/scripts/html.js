@@ -1,7 +1,7 @@
 /**
  * Created by amitava on 31/01/16.
  */
-var config = require('config');
+
 import {KEYWORDS} from './constants';
 export default function html(markup, initialState, helmet){
     const title = helmet.title.toString() || 'radiole';
@@ -27,7 +27,6 @@ export default function html(markup, initialState, helmet){
                     <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,500,900' rel='stylesheet' type='text/css'>
                     <script src="/static/vendor.js" type="text/javascript"></script>
                     <script src="/static/app.js" type="text/javascript"></script>
-                    <script async src='https://www.google-analytics.com/analytics.js'></script>
                 </body>
             </html>
         `

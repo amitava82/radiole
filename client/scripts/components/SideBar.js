@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
 import {connect} from 'react-redux';
+import classNames from 'classnames';
 import {Link} from 'react-router';
 import { push } from 'react-router-redux';
 import autobind from 'autobind-decorator';
@@ -9,6 +9,7 @@ import {Navbar, Nav, NavItem, Button, Input, NavDropdown, MenuItem} from 'react-
 import {LinkContainer} from 'react-router-bootstrap';
 
 import Loading from './Loading';
+import Footer from './Footer';
 import {loadWatching} from '../redux/modules/watchlist';
 
 @connect(state => state)
@@ -42,15 +43,19 @@ export default class SideBar extends React.Component {
             })
         }
 
+        const sidebarOn = this.props.uistate.sidebarOn;
+        const _style = classNames({
+            'hidden-sm hidden-xs': !sidebarOn
+        });
+
         return (
-            <aside className="hidden-sm hidden-xs">
+            <aside className={_style} >
                 <div className="dashboard-nav">
                     <div className="text-center brand">
                         <a href="#">
                             radiole
                             <i className="fa fa-volume-up" />
                         </a>
-
                     </div>
                     <ul className="menus list-unstyled">
                         <li>
@@ -81,6 +86,7 @@ export default class SideBar extends React.Component {
                         {watching}
                     </ul>
                 </div>
+                <Footer />
             </aside>
         )
     }
