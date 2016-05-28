@@ -12,12 +12,12 @@ The UI has two sections showing featured and user playlists from Spotify. Any nu
 Technology
 ----------
 radiole is a full stack javascript app built on Nodejs backend and React for frontend.
-Backend: NodeJS, MongoDB, Redis
-Scheduling: [Agenda](https://github.com/rschmukler/agenda/)
-Email: Sendgrid
-UI: React+Redux, React router, normalizr, SCSS
-Build: Grunt, webpack
-Others: babel for ES6 transpiler
+- **Backend**: NodeJS, MongoDB, Redis
+- **Scheduling**: [Agenda](https://github.com/rschmukler/agenda/)
+- **Email**: Sendgrid
+- **UI**: React+Redux, React router, normalizr, SCSS
+- **Build**: Grunt, webpack
+- **Others**: babel for ES6 transpiler
 
 
 Quick start
@@ -47,9 +47,9 @@ Open url based on the config to load the UI
 
 TODO
 ----
-Polish up UI
-Email templates
-Additional features to preview tracks, open spotify app etc for better UX
+- Polish up UI, responsive
+- Email templates
+- Additional features to preview tracks, open spotify app etc for better UX
 
 License
 -------
