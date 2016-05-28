@@ -2,9 +2,11 @@ footer{
     justify-content: center;
     color: #777;
     background: #1e1e1e;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-align: center;
-    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 300px;
     .links a {
         margin: 0 10px;
         &:hover{

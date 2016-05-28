@@ -44,12 +44,12 @@ export default class SideBar extends React.Component {
         }
 
         const sidebarOn = this.props.uistate.sidebarOn;
-        const _style = classNames({
+        const _style = classNames('sidebar', {
             'hidden-sm hidden-xs': !sidebarOn
         });
 
         return (
-            <aside className={_style} >
+            <div className={_style} >
                 <div className="dashboard-nav">
                     <div className="text-center brand">
                         <a href="#">
@@ -87,7 +87,7 @@ export default class SideBar extends React.Component {
                     </ul>
                 </div>
                 <Footer />
-            </aside>
+            </div>
         )
     }
 }

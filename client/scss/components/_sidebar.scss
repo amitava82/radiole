@@ -1,6 +1,7 @@
-aside{
+.sidebar{
     width: 300px;
-    position: absolute;
+    min-height:100%;
+    position: fixed;
     background: #1c1c1f;
     box-shadow: 0px 0px 8px 5px rgba(0,0,0,0.2);
     left: 0;
@@ -53,7 +54,6 @@ aside{
     }
 
     .now-watch{
-        padding-bottom: 150px;
         >p{
             color: $brand-primary;
             text-transform: uppercase;
@@ -64,6 +64,11 @@ aside{
         .watch-list{
             overflow-x: hidden;
             overflow-y: auto;
+            position: absolute;
+            bottom: 70px;
+            left: 0;
+            right: 0;
+            top: 280px;
             li {
                 margin-bottom: 10px;
                 box-shadow: 0 1px 2px rgba(0,0,0,.50);

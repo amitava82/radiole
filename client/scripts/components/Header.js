@@ -22,7 +22,7 @@ export default class Header extends React.Component {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                     </button>
-                    <a className="navbar-brand" href="/">radiole</a>
+                    <a className="navbar-brand brand" href="/">radiole</a>
                 </div>
             </div>
         )
