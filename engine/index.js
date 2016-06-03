@@ -9,7 +9,7 @@ var _ = require('lodash');
 var jobs = require('./constants');
 var jobConstants = require('./constants');
 
-process.env['NODE_CONFIG_DIR'] = '../config';
+//process.env['NODE_CONFIG_DIR'] = '../config';
 
 var config = require('config');
 var Scheduler = require('./scheduler');
