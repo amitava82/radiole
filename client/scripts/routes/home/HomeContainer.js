@@ -67,7 +67,7 @@ export default class HomeContainer extends React.Component {
         return (
             <div className="home-container">
                 <Helmet title="radiole :: Dashboard" />
-                <section>
+                <section className="featured">
                     <div className="section-header">
                         <h3>
                             Featured Playlists

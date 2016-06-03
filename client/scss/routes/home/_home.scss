@@ -1,3 +1,10 @@
 .home-container{
     padding: 20px 30px;
+
+    .featured{
+        .album-list{
+            white-space: nowrap;
+            overflow: auto;
+        }
+    }
 }
