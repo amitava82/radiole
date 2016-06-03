@@ -42,7 +42,7 @@ module.exports = function (deps, app, callback) {
                 res.redirect(redirect.pathname + redirect.search);
             }else if(!props){
                 res.status(404);
-                res.send(hydrate(props, store));
+                res.render('error', {error: 'Page not found', title: '404 - Not found'});
             }else{
                 //hydrate(props);
                 return fetchData(props.components, store, props).then(
