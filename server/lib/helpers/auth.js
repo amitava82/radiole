@@ -8,10 +8,15 @@ var refresh = require('passport-oauth2-refresh');
 var requestNewAccessToken = Promise.promisify(refresh.requestNewAccessToken, {multiArgs: true});
 var uuid = require('uuid');
 var Sendgrid  = require('sendgrid');
+var url = require('url');
+
+
 
 module.exports = function(deps){
 
     var sendgrid = Sendgrid(deps.config.get('sendGrid'));
+
+    const SERVER_URL = url.format({...deps.config.ui, pathname: '/auth/validate/'});
 
     return {
         
@@ -46,11 +51,11 @@ module.exports = function(deps){
                             <html>
                                 <body>
                                     <p>Hi, you have changed your email address in radiole. Please click the following link to validate your email address.</p>
-                                    <a href="https://radiole.com/auth/validate/${hash}">Validate my email address</a>
+                                    <a href="${SERVER_URL}${hash}">Validate my email address</a>
                                     <br />
-                                    <p>Or copy and paste following link into your browser: https://radiole.com/auth/validate/${hash}</p>
+                                    <p>Or copy and paste following link into your browser: ${SERVER_URL}${hash}</p>
                                     <p>Thanks!</p>
-                                    <p>radiole</p>
+                                    <p>radiole.in</p>
                                 </body>
                             </html>
                         `,

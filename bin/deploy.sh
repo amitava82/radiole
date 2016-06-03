@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+export NODE_ENV=production
 echo "Pulling from git..."
 git pull
 echo "Installing dependencies..."
