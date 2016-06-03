@@ -8,8 +8,8 @@ module.exports = {
     FETCH_PLAYLIST_TRACKS: 'Fetch playlist tracks', //fetch tracks for a playlist
     SYNC_PLAYLISTS: 'Sync watchlist tracks', //sync all watchlists
     SEND_EMAIL_DIGEST: 'Send email digest',
-    DAILY_SCHEDULE_TIME: 'every day at 5am', //everyday 6am
-    WEEKLY_SCHEDULE_TIME: 'every sunday 5am', //sunday 6am
+    DAILY_SCHEDULE_TIME: 'every day',
+    WEEKLY_SCHEDULE_TIME: 'every week',
     TIMEZONE: 'America/New_York',
     PLAYLIST_SYNC_FREQUENCY: '12 hours'
 };
