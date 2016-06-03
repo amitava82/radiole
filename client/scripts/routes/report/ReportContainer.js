@@ -58,8 +58,10 @@ export default class ReportContainer extends React.Component {
 
     @autobind
     unwatch(){
-        this.props.dispatch(unwatchPlaylist(this.props.params.id));
-        this.props.dispatch(push('/home'));
+        if(confirm("Are you sure?")){
+            this.props.dispatch(unwatchPlaylist(this.props.params.id));
+            this.props.dispatch(push('/home'));
+        }
     }
 
 

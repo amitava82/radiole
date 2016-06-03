@@ -7,7 +7,7 @@
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "author": "Amitava Saha <amitava82@gmail.com> (https://github.com/amitava82)",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "agenda": "^0.8.1",
     "async": "^1.5.2",

@@ -53,4 +53,4 @@ TODO
 
 License
 -------
-This project is licensed under the MIT license, Copyright (c) 2016 Amitava Saha. For more information see LICENSE.md.
+This project is licensed under the Apache License 2.0, Copyright (c) 2016 Amitava Saha. For more information see LICENSE.md.
