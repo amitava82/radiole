@@ -51,6 +51,10 @@ async.eachSeries([
 
     Scheduler(deps, function(err, agenda){
         agenda.start();
+
+        //sync on startup
+        agenda.now(jobConstants.SYNC_PLAYLISTS);
+
         //Job to fetch new watched list tracks
         agenda.every('12 hours', jobConstants.SYNC_PLAYLISTS);
     });

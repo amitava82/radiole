@@ -33,15 +33,15 @@ module.exports = function (deps, callback) {
     process.on('SIGINT' , graceful);
 
     agenda.on('start', function(job) {
-        console.log("Job %s starting", job.attrs.name);
+        console.log(new Date(),  " - Job %s starting", job.attrs.name);
     });
     
     agenda.on('success', function(job) {
-        console.log("Job %s Successfully completed.", job.attrs.name);
+        console.log(new Date(), " - Job %s Successfully completed.", job.attrs.name);
     });
 
     agenda.on('fail', function(err, job) {
-        console.log("Job %s failed with error: %s", job.attrs.name, err.message);
+        console.log(new Date(), " - Job %s failed with error: %s", job.attrs.name, err.message);
     });
 
     agenda.on('error', function(e){
