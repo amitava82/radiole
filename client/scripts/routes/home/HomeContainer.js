@@ -12,14 +12,24 @@ import Loading from '../../components/Loading';
 
 import {getFeaturedPlaylist, getMyPlaylists} from '../../redux/modules/playlist';
 import {watchPlaylist, unwatchPlaylist} from '../../redux/modules/watchlist';
+import {createToast} from '../../redux/modules/toast';
 
 
 @connect(state => state)
 export default class HomeContainer extends React.Component {
 
     componentDidMount(){
-        this.props.dispatch(getFeaturedPlaylist());
-        this.props.dispatch(getMyPlaylists());
+        const {dispatch, session: {user}} = this.props;
+
+        dispatch(getFeaturedPlaylist());
+        dispatch(getMyPlaylists());
+
+        if(user.email && !user.email_verified){
+            dispatch(createToast({
+                text: 'Please verify your email address to receive email digest. Please check your inbox/spam folder.',
+                timeout: 20000
+            }));
+        }
     }
 
     @autobind
